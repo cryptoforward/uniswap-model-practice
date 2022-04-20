@@ -36,6 +36,14 @@ class Pool:
         self.quantity_2 -= received
         return received
 
+    def printPool(self):
+        #print(self.token_1+"      " +self.token_2)
+        print(self.token_1+"      __  "+self.token_2)
+        print("      (__) ")
+        print(" {a}  __ {b}     ".format(a=self.quantity_1, b=self.quantity_2))
+        print("      (__) ")
+    
+
 
 
 
