@@ -33,15 +33,15 @@ class Pool:
         k = self.quantity_1* self.quantity_2
         self.quantity_2+= quantity_given
         received = ((self.quantity_2*self.quantity_1)-k)/ self.quantity_2
-        self.quantity_2 -= received
+        self.quantity_1 -= received
         return received
 
     def printPool(self):
-        #print(self.token_1+"      " +self.token_2)
-        print(self.token_1+"      __  "+self.token_2)
-        print("      (__) ")
-        print(" {a}  __ {b}     ".format(a=self.quantity_1, b=self.quantity_2))
-        print("      (__) ")
+        print(self.token_1+"         __      "+self.token_2)
+        print("         (__) ")
+        print("q: {a}   __ {b}          ".format(a=self.quantity_1, b=self.quantity_2))
+        print("         (__) ")
+        print("p: {a}{B}      {b}{A}".format(a=self.get_priceA(), b=self.get_priceB(),B = self.token_2, A = self.token_1))
     
 
 

@@ -1,3 +1,4 @@
+from multiprocessing import pool
 from pool import *
 from user import *
 
@@ -5,9 +6,53 @@ def main():
     print("Welcome to Uniswap!")
 
     pool1 = Pool("A", 40.0, "B", 60.0)
-    pool2 = Pool("C", 80, "D", 40)
+    pool2 = Pool("C", 80.0, "D", 40.0)
+    user = User(0.0,0.0,0.0,0.0, [])
 
     pool1.printPool()
+    print("")
+    print("")
+    pool2.printPool()
+
+    option = 0
+    currentPool = pool1
+
+    print("")
+    option = input("Enter top for top pool, bottom for bottom pool. Include parantheses:")
+
+    if option == "top":
+        pool1.printPool()
+    elif option == "bottom":
+        currentPool = pool2
+        pool2.printPool()
+
+    #enter -1 to exit
+    while option !=-1:
+        print("Enter 1 to swap "+ currentPool.token_1 +" for " + currentPool.token_2)
+        print("Enter 2 to swap "+ currentPool.token_2 + " for "+ currentPool.token_1)
+        print("Enter 3 to view account balances")
+        print("Enter 4 to view pool")
+        option = input()
+        if option == 1 :
+            option = input("Enter amount of "+ currentPool.token_1+" to send:")
+            if option > 0:
+                currentPool.swap1for2(option)
+            else: print("No negative values!")
+        elif option ==2 :
+            option = input("Enter amount of "+ currentPool.token_2+" to send:")
+            if option > 0:
+                currentPool.swap2for1(option)
+            else: print("No negative values!")
+        currentPool.printPool()
+
+        
+        
+
+        
+
+    
+
+
     
 
 
