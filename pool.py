@@ -20,21 +20,20 @@ class Pool:
     def get_liquidity(self):
         return sqrt(self.quantity_1*self.quantity_2)
 
-    #parameters are: user calling, 
     #returns quantity of token 2 received
-    def swap1for2(self,user, quantity_given  ):
-        k = self.token_1 * self.token_2
-        self.token_1 += quantity_given
-        received = ((self.token_1*self.token_2)-k)/ self.token_1
-        self.token_2 -= received
+    def swap1for2(self, quantity_given  ):
+        k = self.quantity_1 * self.quantity_2
+        self.quantity_1 += quantity_given
+        received = ((self.quantity_1*self.quantity_2)-k)/ self.quantity_1
+        self.quantity_2 -= received
         return received
 
     # Same as previous but switched
-    def swap2for1(self, user, quantity_given):
-        k = self.token_1* self.token_2
-        self.token_2+= quantity_given
-        received = ((self.token_2*self.token_1)-k)/ self.token_2
-        self.token_2 -= received
+    def swap2for1(self, quantity_given):
+        k = self.quantity_1* self.quantity_2
+        self.quantity_2+= quantity_given
+        received = ((self.quantity_2*self.quantity_1)-k)/ self.quantity_2
+        self.quantity_2 -= received
         return received
 
 

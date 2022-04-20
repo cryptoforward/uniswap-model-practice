@@ -8,7 +8,12 @@ def main():
     print(testPool.get_priceA())
     print(testPool.get_priceB()) 
 
-    testPool.swap1for2()
+    testPool.swap1for2(10)
+
+    print(testPool.get_priceA())
+    print(testPool.get_priceB()) 
+
+
 
     #lp = LPToken(40.0, 60.0, .66, 1.5)
     #print(lp.liquidity)
