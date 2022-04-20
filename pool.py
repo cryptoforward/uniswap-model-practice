@@ -8,6 +8,7 @@ class Pool:
         self.token_2 = name_b
         self.quantity_1 = quantity_a
         self.quantity_2 = quantity_b
+        self.liquidity = sqrt(self.quantity_1 * self.quantity_2)
 
     #Current price of A in terms of B
     def get_priceA(self):
@@ -16,9 +17,6 @@ class Pool:
     #Current price of B in terms of A
     def get_priceB(self):
         return self.quantity_1 / self.quantity_2
-
-    def get_liquidity(self):
-        return sqrt(self.quantity_1*self.quantity_2)
 
     #returns quantity of token 2 received
     def swap1for2(self, quantity_given  ):
@@ -42,6 +40,12 @@ class Pool:
         print("q: {a}   __ {b}          ".format(a=self.quantity_1, b=self.quantity_2))
         print("         (__) ")
         print("p: {a}{B}      {b}{A}".format(a=self.get_priceA(), b=self.get_priceB(),B = self.token_2, A = self.token_1))
+
+    def addLiquidity(self,q1, q2):
+        self.quantity_1 +=q1
+        self.quantity_2 +=q2
+
+    
     
 
 

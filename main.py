@@ -30,32 +30,30 @@ def main():
     while option !=-1:
         print("Enter 1 to swap "+ currentPool.token_1 +" for " + currentPool.token_2)
         print("Enter 2 to swap "+ currentPool.token_2 + " for "+ currentPool.token_1)
-        print("Enter 3 to view account balances")
-        print("Enter 4 to view pool")
+        print("Enter 3 to add liquidity")
+        
         option = input()
         if option == 1 :
             option = input("Enter amount of "+ currentPool.token_1+" to send:")
             if option > 0:
                 currentPool.swap1for2(option)
             else: print("No negative values!")
-        elif option ==2 :
+        elif option == 2 :
             option = input("Enter amount of "+ currentPool.token_2+" to send:")
             if option > 0:
                 currentPool.swap2for1(option)
             else: print("No negative values!")
+        elif option == 3:
+            add_1 = input("Enter amount of "+ currentPool.token_1+" to add:")
+            add_2 = input("Enter amount of "+ currentPool.token_2 + " to add:")
+            currentPool.addLiquidity(add_1, add_2)
+
+        
+
         currentPool.printPool()
 
         
         
-
-        
-
-    
-
-
-    
-
-
 
     #lp = LPToken(40.0, 60.0, .66, 1.5)
     #print(lp.liquidity)
